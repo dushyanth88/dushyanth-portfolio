@@ -73,6 +73,9 @@ section{
     animation: floatImage 4s ease-in-out infinite;
     -webkit-animation: floatImage 4s ease-in-out infinite;
 }
+.home-img img:hover{
+    box-shadow: 0 0 1rem var(--main-color) ;
+}
 @keyframes floatImage{
     0%{
         transform: translateY(0);
@@ -150,6 +153,10 @@ span{
 }
 .about-img img{
     width: 35vw;
+}
+.about-img img:hover{
+    box-shadow: 0 0 1rem var(--main-color) ;
+
 }
 .heading{
     text-align: center;
