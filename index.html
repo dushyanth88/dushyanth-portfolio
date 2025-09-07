@@ -6,6 +6,12 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Add in <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+
+
 </head>
 <body>
     <header class="header">
@@ -16,6 +22,7 @@
             <a href="#about">About</a>
             <a href="#education">Education</a>
             <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
         </header>
@@ -33,7 +40,7 @@
                 
 
             </div>
-            <a href="./images/DushyanthCResume.pdf" download="resume" class="btn">Download CV</a>
+            <a href="/dushyanth resume.pdf" download="resume" class="btn">Download CV</a>
             </div>
             <div class="home-img">
                 <img src="./images/home (2).png" alt="">
@@ -97,7 +104,7 @@
                 <p>Web development involves creating websites and web applications, focusing on both the frontend (user interface) and backend (server-side logic). 
                     It uses technologies like HTML, CSS, JavaScript, and various frameworks.
                     Web development is essential for building interactive and dynamic online experiences.</p>
-                <a href="#" class="btn">Read more</a>
+                <a href="#skills" class="btn">Read more</a>
             </div> 
             <div class="skills-box">
                 <i class='bx bx-code-curly' ></i>              
@@ -110,6 +117,66 @@
             </div>
            
         </section>
+
+        <section class="projects" id="projects">
+  <h2 class="heading">My <span>Projects</span></h2>
+  <div class="skills-container">
+    
+    <div class="skills-box">
+      <i class="fa-solid fa-vr-cardboard"></i>
+      <h3>AR-Streethelper</h3>
+      <p>
+        Built a responsive Augmented Reality web app using React, TypeScript, and Express. 
+        Integrated AR.js & Three.js to overlay virtual markers on real-world environments, 
+        enhancing urban accessibility. Mobile-first & optimized for performance.
+      </p>
+      <a href="https://street-helper-ar.vercel.app/" class="btn" target="_blank">View Project</a>
+    </div>
+    
+    <div class="skills-box">
+      <i class="fa-solid fa-user"></i>
+      <h3>Portfolio</h3>
+      <p>
+        Designed and developed a personal portfolio website to showcase projects, skills, and achievements. 
+        Implemented a responsive layout for seamless viewing on all devices with an interactive UI.
+      </p>
+      <a href="https://dushyanth88.github.io/dushyanth-portfolio/" class="btn" target="_blank">View Project</a>
+    </div>
+    
+    <div class="skills-box">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <h3>Ecommerce Website</h3>
+      <p>
+        Developed a fully responsive e-commerce website featuring products and a dynamic shopping experience using JavaScript.
+      </p>
+      <a href="https://dushyanth88.github.io/ecom/" class="btn" target="_blank">View Project</a>
+    </div>
+    
+  </div>
+</section>
+
+
+
+        <section class="contact" id="contact">
+            <h2 class="heading">Contact <span>Me!</span></h2>
+            <form action="https://api.web3forms.com/submit" method="POST">
+              
+                <div class="input-box">
+                      <input type="hidden" name="access_key" value="932c422d-8d3f-42d8-bbcc-7197f869c4de">
+                    <input type="text"name="name" placeholder="Full Name">
+                    <input type="email" name="email" placeholder="Email address">
+                </div>
+                <div class="input-box">
+                    <input type="number" name ="number" placeholder="Mobile Number">
+                    <input type="text" name="subject" placeholder="Subject">
+                </div>
+                    
+                </div>
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+                <input type="submit" value="Send Message" class="btn">
+            </form>
+        </section>
+
 
 
         <section class="contact" id="contact">
@@ -150,7 +217,4 @@
 
         <script src="script.js"></script>
         </body>
-    <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="tE8kLHK81xLR-3YgA7L6z";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-    </script>
         </html>
