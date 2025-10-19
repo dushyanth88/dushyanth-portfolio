@@ -64,3 +64,34 @@ backDelay:1000,
 loop:true
 
 }) ;
+
+// Snow Effect
+function createSnowflake() {
+    const snowContainer = document.getElementById('snow-container');
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.innerHTML = '❄';
+    
+    // Random position
+    snowflake.style.left = Math.random() * 100 + 'vw';
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+    snowflake.style.opacity = Math.random();
+    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+    
+    snowContainer.appendChild(snowflake);
+    
+    // Remove snowflake after animation
+    setTimeout(() => {
+        snowflake.remove();
+    }, 5000);
+}
+
+// Create snowflakes periodically
+setInterval(createSnowflake, 100);
+
+// Create initial snowflakes
+for (let i = 0; i < 50; i++) {
+    setTimeout(() => {
+        createSnowflake();
+    }, i * 100);
+}
