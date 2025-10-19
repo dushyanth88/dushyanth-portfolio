@@ -75,23 +75,31 @@ function createSnowflake() {
     // Random position
     snowflake.style.left = Math.random() * 100 + 'vw';
     snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-    snowflake.style.opacity = Math.random();
-    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+    snowflake.style.opacity = Math.random() * 0.8 + 0.2; // Ensure minimum visibility
+    snowflake.style.fontSize = Math.random() * 15 + 15 + 'px'; // Larger for mobile
+    snowflake.style.zIndex = '9999'; // Ensure it's on top
+    snowflake.style.pointerEvents = 'none';
     
     snowContainer.appendChild(snowflake);
     
     // Remove snowflake after animation
     setTimeout(() => {
-        snowflake.remove();
+        if (snowflake.parentNode) {
+            snowflake.remove();
+        }
     }, 5000);
 }
 
-// Create snowflakes periodically
-setInterval(createSnowflake, 100);
+// Create snowflakes periodically - less frequent on mobile
+const isMobile = window.innerWidth <= 768;
+const snowInterval = isMobile ? 200 : 100;
+const initialSnowflakes = isMobile ? 30 : 50;
+
+setInterval(createSnowflake, snowInterval);
 
 // Create initial snowflakes
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < initialSnowflakes; i++) {
     setTimeout(() => {
         createSnowflake();
-    }, i * 100);
+    }, i * 150);
 }
