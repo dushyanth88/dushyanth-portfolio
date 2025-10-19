@@ -37,7 +37,7 @@ body{
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 9999;
 }
 
 .snowflake {
@@ -47,6 +47,8 @@ body{
     user-select: none;
     pointer-events: none;
     animation: fall linear infinite;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.6));
 }
 
 @keyframes fall {
@@ -755,7 +757,9 @@ span{
         flex: 1 1 auto;
         min-width: 100%;
         height: auto;
-        min-height: 40rem;
+        min-height: 50rem;
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
     }
     .skills-container .skills-box{
         flex: 1 1 auto;
@@ -769,6 +773,90 @@ span{
     }
     .contact form .input-box input{
         width: 100%;
+    }
+    
+    /* Mobile certificate section improvements */
+    .certifications-container .certification-box{
+        min-height: 45rem;
+        padding: 2.5rem 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .certification-box i{
+        font-size: 6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .certification-box h3{
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .certification-box p{
+        font-size: 1.4rem;
+        line-height: 1.8;
+        margin: 1.5rem 0;
+    }
+    
+    .certification-details{
+        margin: 2rem 0;
+        padding: 1.5rem;
+    }
+    
+    .cert-issuer, .cert-date{
+        font-size: 1.3rem;
+    }
+    
+    .certification-box .btn{
+        font-size: 1.4rem;
+        padding: 1.2rem 2.5rem;
+        margin-top: 2rem;
+    }
+    
+    /* Ensure colors are visible on mobile */
+    .certification-box .fa-html5{
+        color: #e34f26 !important;
+        filter: drop-shadow(0 0 5px #e34f26);
+    }
+    
+    .certification-box .fa-android{
+        color: #3ddc84 !important;
+        filter: drop-shadow(0 0 5px #3ddc84);
+    }
+    
+    .certification-box .fa-handshake{
+        color: var(--accent-color) !important;
+        filter: drop-shadow(0 0 5px var(--accent-color));
+    }
+    
+    .certification-box .fa-react{
+        color: #61dafb !important;
+        filter: drop-shadow(0 0 5px #61dafb);
+    }
+    
+    /* Mobile snow effect improvements */
+    .snowflake {
+        font-size: 20px !important;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 1) !important;
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)) !important;
+    }
+    
+    /* Ensure gradients are visible on mobile */
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background-attachment: fixed;
+    }
+    
+    .about {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+    }
+    
+    .education {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+    }
+    
+    .certifications {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
     }
 }
 @media (max-width:365px){
