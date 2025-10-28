@@ -37,7 +37,7 @@ body {
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    background-attachment: fixed;
+    background-attachment: scroll; /* Changed to scroll for consistency across all devices */
     /* Add subtle cosmic background effect */
     background-image: 
         radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.05), transparent),
@@ -45,8 +45,10 @@ body {
         radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.05), transparent);
     background-repeat: repeat;
     background-size: 100px 100px;
+    -webkit-animation: cosmicMove 50s linear infinite; /* Safari prefix */
     animation: cosmicMove 50s linear infinite;
     z-index: 1;
+    -webkit-background-size: 100px 100px; /* Safari prefix */
 }
 
 /* Preloader Styles removed */
@@ -234,6 +236,52 @@ section{
     }
 }
 
+/* Optimize cosmic animation for different screen sizes */
+@media (max-width: 991px) {
+    @keyframes cosmicMove {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 500px 500px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    @keyframes cosmicMove {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 500px 500px;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    @keyframes cosmicMove {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 250px 250px;
+        }
+    }
+}
+
+/* Ensure cosmic background animation is consistent */
+@media (max-width: 1200px) {
+    @keyframes cosmicMove {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 1000px 1000px;
+        }
+    }
+}
+
 /* Reduce opacity of cosmic background */
 body::before {
     content: '';
@@ -248,6 +296,34 @@ body::before {
 }
 
 /* Ensure body::before is maintained on all devices */
+@media (max-width: 1200px) {
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 991px) {
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
 @media (max-width: 768px) {
     body::before {
         content: '';
@@ -262,7 +338,35 @@ body::before {
     }
 }
 
+@media (max-width: 610px) {
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
 @media (max-width: 450px) {
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 365px) {
     body::before {
         content: '';
         position: fixed;
@@ -784,6 +888,17 @@ span {
     padding: 10rem 9% 2rem;
 }
 
+.certifications::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 230, 109, 0.1));
+    z-index: -1;
+}
+
 .certifications h2 {
     margin-bottom: 4rem;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -1069,11 +1184,7 @@ span {
     
     .education {
         padding-bottom: 7rem;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
-    }
-    
-    .certifications {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+        background: var(--second-bg-color) !important;
     }
     
     .contact {
@@ -1086,8 +1197,8 @@ span {
     
     /* Ensure cosmic background effect on tablet */
     body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        background-attachment: fixed;
+        background: var(--bg-color) !important;
+        background-attachment: scroll; /* Changed to scroll for better performance */
         /* Add subtle cosmic background effect */
         background-image: 
             radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.05), transparent),
@@ -1095,10 +1206,16 @@ span {
             radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.05), transparent) !important;
         background-repeat: repeat;
         background-size: 100px 100px;
+        -webkit-animation: cosmicMove 50s linear infinite; /* Safari prefix */
         animation: cosmicMove 50s linear infinite;
+        min-height: 100vh;
+        -webkit-background-size: 100px 100px; /* Safari prefix */
+    }
+    
+    .about {
+        background: var(--second-bg-color) !important;
     }
 }
-
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
@@ -1157,7 +1274,7 @@ span {
         flex-direction: column-reverse;
         gap: 3rem;
         padding: 8rem 3% 2rem;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+        background: var(--second-bg-color) !important;
     }
     
     .about-img img {
@@ -1202,8 +1319,8 @@ span {
     
     /* Ensure cosmic background effect on mobile */
     body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        background-attachment: fixed;
+        background: var(--bg-color) !important;
+        background-attachment: scroll; /* Changed to scroll for better mobile performance */
         /* Add subtle cosmic background effect */
         background-image: 
             radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.05), transparent),
@@ -1211,7 +1328,10 @@ span {
             radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.05), transparent) !important;
         background-repeat: repeat;
         background-size: 100px 100px;
+        -webkit-animation: cosmicMove 50s linear infinite; /* Safari prefix */
         animation: cosmicMove 50s linear infinite;
+        min-height: 100vh; /* Ensure full viewport height */
+        -webkit-background-size: 100px 100px; /* Safari prefix */
     }
 }
 
@@ -1248,8 +1368,8 @@ span {
     
     /* Ensure cosmic background effect on small tablets */
     body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        background-attachment: fixed;
+        background: var(--bg-color) !important;
+        background-attachment: scroll; /* Changed to scroll for better mobile performance */
         /* Add subtle cosmic background effect */
         background-image: 
             radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.05), transparent),
@@ -1257,7 +1377,10 @@ span {
             radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.05), transparent) !important;
         background-repeat: repeat;
         background-size: 100px 100px;
+        -webkit-animation: cosmicMove 50s linear infinite; /* Safari prefix */
         animation: cosmicMove 50s linear infinite;
+        min-height: 100vh; /* Ensure full viewport height */
+        -webkit-background-size: 100px 100px; /* Safari prefix */
     }
 }
 
@@ -1319,25 +1442,31 @@ span {
     
     /* Ensure gradients are visible on mobile */
     body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        background-attachment: fixed;
+        background: var(--bg-color) !important;
+        background-attachment: scroll; /* Changed to scroll for better mobile performance */
+        /* Add subtle cosmic background effect */
+        background-image: 
+            radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.05), transparent),
+            radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.03), transparent),
+            radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.05), transparent) !important;
+        background-repeat: repeat;
+        background-size: 100px 100px;
+        -webkit-animation: cosmicMove 50s linear infinite; /* Safari prefix */
+        animation: cosmicMove 50s linear infinite;
+        min-height: 100vh; /* Ensure full viewport height */
+        -webkit-background-size: 100px 100px; /* Safari prefix */
     }
     
     .about {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+        background: var(--second-bg-color) !important;
     }
     
     .education {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+        background: var(--second-bg-color) !important;
     }
     
     .certifications {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
-    }
-    
-    /* Footer adjustments */
-    .footer {
-        padding: 3rem 3%;
+        background: var(--second-bg-color) !important;
     }
 }
 
