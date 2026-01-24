@@ -120,7 +120,7 @@ ScrollReveal().reveal('.education-box, .certification-box, .skills-box', {
 
 
 const typed = new Typed('.multiple-text', {
-    strings: ['Full Stack Development', 'Python', 'AI & Machine Learning', 'Web Development'],
+    strings: ['Full Stack Development', 'Core Java',  'Web Development'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
@@ -277,4 +277,5 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Spotlight effect is handled in the optimized scroll listener above
+
 
